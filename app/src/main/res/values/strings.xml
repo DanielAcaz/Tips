@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">Tips</string>
+    <string name="_username">Username</string>
+    <string name="_password">Password</string>
+    <string name="_dontHaveAnAccount">Don\'t Have An Account ?</string>
+    <string name="_forgotPassword">Forgot Password</string>
+    <string name="emailNotValid">Not a valid email address!</string>
+    <string name="passwordNotValid">Password is not valid!</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="facebook_app_id">233747500585878</string>
+    <string name="fb_login_protocol_scheme">fb233747500585878</string>
+</resources>
