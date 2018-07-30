@@ -9,4 +9,7 @@
     <string name="title_activity_maps">Map</string>
     <string name="facebook_app_id">233747500585878</string>
     <string name="fb_login_protocol_scheme">fb233747500585878</string>
+    <string name="_email">Email</string>
+    <string name="passwordSizeNotValid">password must be longer than 5 characters</string>
+    <string name="textEmptyOrBlank">Text not be empty</string>
 </resources>

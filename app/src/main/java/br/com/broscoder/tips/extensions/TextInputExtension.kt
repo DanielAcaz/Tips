@@ -26,11 +26,27 @@ fun TextInputLayout.validation():Boolean{
             }
 
         InputType.TYPE_TEXT_VARIATION_PASSWORD -> {
-            true
-        }
 
+            if (this.editText?.text.toString().length < resources.getInteger(R.integer.sizePasswordMin)) {
+                this.isErrorEnabled = true
+                this.error = resources.getString(R.string.passwordSizeNotValid)
+                false
+            } else {
+                this.isErrorEnabled = false
+                true
+            }
+        }
         else -> {
-            true
+
+            if (this.editText?.text.toString().isEmpty() || this.editText?.text.toString().isBlank()) {
+                this.isErrorEnabled = true
+                this.error = resources.getString(R.string.textEmptyOrBlank)
+                false
+            } else {
+                this.isErrorEnabled = false
+                true
+            }
+
         }
     }
 
