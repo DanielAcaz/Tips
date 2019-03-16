@@ -1,24 +1,18 @@
 package br.com.broscoder.tips.view
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import br.com.broscoder.tips.R
 import br.com.broscoder.tips.extensions.validation
 import br.com.broscoder.tips.service.LoginService
-import com.facebook.*
-import com.facebook.login.LoginManager
-import com.google.firebase.auth.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import kotlinx.android.synthetic.main.activity_login.*
-import com.facebook.login.LoginResult
-import com.google.android.gms.auth.api.signin.*
-import com.google.android.gms.common.api.ApiException
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.common.SignInButton
-import java.util.Arrays.asList
 
 
 class LoginActivity : AppCompatActivity() {
@@ -96,6 +90,11 @@ class LoginActivity : AppCompatActivity() {
 
     fun createUser(view: View) {
         intent = Intent(this, CreateUserActivity::class.java)
+        startActivity(intent)
+    }
+
+    fun rememberPassword(view: View) {
+        intent = Intent(this, ForgotPasswordActivity::class.java)
         startActivity(intent)
     }
 }

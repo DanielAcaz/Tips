@@ -12,4 +12,5 @@
     <string name="_email">Email</string>
     <string name="passwordSizeNotValid">password must be longer than 5 characters</string>
     <string name="textEmptyOrBlank">Text not be empty</string>
+    <string name="_rememberPassword">Remember Your Password By Your Email</string>
 </resources>
