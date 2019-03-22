@@ -3,21 +3,24 @@ package br.com.broscoder.tips.view
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Build
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.annotation.RequiresApi
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
+import android.support.v7.app.AppCompatActivity
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.widget.Toast
 import br.com.broscoder.tips.R
-
+import br.com.broscoder.tips.adapter.RestaurantViewAdapter
+import br.com.broscoder.tips.model.Restaurant
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
-import java.util.jar.Manifest
+import kotlinx.android.synthetic.main.activity_maps.*
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener,
         ActivityCompat.OnRequestPermissionsResultCallback, GoogleMap.OnMapClickListener {
@@ -37,6 +40,30 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
+
+        val restaurants = ArrayList<Restaurant>();
+        restaurants.add(Restaurant("Confraria Jardim", R.drawable.themartian))
+        restaurants.add(Restaurant("Rancho das Figueiras", R.drawable.thewildrobot))
+        restaurants.add(Restaurant("The Burguer Map", R.drawable.mariasemples))
+        restaurants.add(Restaurant("Europa's Bar", R.drawable.themartian))
+        restaurants.add(Restaurant("Rösti Bar e Batataria", R.drawable.hediedwith))
+        restaurants.add(Restaurant("Garoupa Frutos do Mar", R.drawable.thevigitarian))
+        restaurants.add(Restaurant("Fritz Cervejaria Artezanal", R.drawable.thewildrobot))
+        restaurants.add(Restaurant("Toca do Tamanduá", R.drawable.mariasemples))
+        restaurants.add(Restaurant("Baby Beef Jardim", R.drawable.themartian))
+        restaurants.add(Restaurant("Fonte Leone", R.drawable.hediedwith))
+        restaurants.add(Restaurant("Rosa's churrascaria", R.drawable.thevigitarian))
+        restaurants.add(Restaurant("Cruzeiro's Bar", R.drawable.thewildrobot))
+        restaurants.add(Restaurant("Tex Mex Madrecita", R.drawable.mariasemples))
+        restaurants.add(Restaurant("Si Señor", R.drawable.themartian))
+        restaurants.add(Restaurant("All In Burguer", R.drawable.hediedwith))
+        restaurants.add(Restaurant("New Yorker Burger", R.drawable.thevigitarian))
+
+        val myRecycler = findViewById<RecyclerView>(recycler_restaurants.id)
+        val myAdapter = RestaurantViewAdapter(this, restaurants)
+        myRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        myRecycler.adapter = myAdapter
+
     }
 
     /**
