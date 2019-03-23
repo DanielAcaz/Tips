@@ -10,22 +10,36 @@ import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.util.Log
 import android.widget.Toast
 import br.com.broscoder.tips.R
-import br.com.broscoder.tips.adapter.RestaurantViewAdapter
+import br.com.broscoder.tips.recycler.RestaurantViewAdapter
 import br.com.broscoder.tips.model.Restaurant
+import br.com.broscoder.tips.recycler.RestaurantScrollListener
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
+import com.google.android.gms.maps.model.BitmapDescriptorFactory
 import com.google.android.gms.maps.model.LatLng
+import com.google.android.gms.maps.model.MapStyleOptions
 import com.google.android.gms.maps.model.MarkerOptions
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.Types
 import kotlinx.android.synthetic.main.activity_maps.*
+import okio.Okio
+
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener,
         ActivityCompat.OnRequestPermissionsResultCallback, GoogleMap.OnMapClickListener {
 
-    private lateinit var mMap: GoogleMap
+    lateinit var mMap: GoogleMap
+    private lateinit var restaurants: List<Restaurant>
+    private lateinit var myRecycler: RecyclerView
+    private lateinit var myAdapter: RestaurantViewAdapter
+    private lateinit var myLayout: LinearLayoutManager
+
+    var positionCard = 0
 
     companion object {
        private val LOCATION_PERMISSION_REQUEST_CODE = 1
@@ -41,28 +55,24 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        val restaurants = ArrayList<Restaurant>();
-        restaurants.add(Restaurant("Confraria Jardim", R.drawable.themartian))
-        restaurants.add(Restaurant("Rancho das Figueiras", R.drawable.thewildrobot))
-        restaurants.add(Restaurant("The Burguer Map", R.drawable.mariasemples))
-        restaurants.add(Restaurant("Europa's Bar", R.drawable.themartian))
-        restaurants.add(Restaurant("Rösti Bar e Batataria", R.drawable.hediedwith))
-        restaurants.add(Restaurant("Garoupa Frutos do Mar", R.drawable.thevigitarian))
-        restaurants.add(Restaurant("Fritz Cervejaria Artezanal", R.drawable.thewildrobot))
-        restaurants.add(Restaurant("Toca do Tamanduá", R.drawable.mariasemples))
-        restaurants.add(Restaurant("Baby Beef Jardim", R.drawable.themartian))
-        restaurants.add(Restaurant("Fonte Leone", R.drawable.hediedwith))
-        restaurants.add(Restaurant("Rosa's churrascaria", R.drawable.thevigitarian))
-        restaurants.add(Restaurant("Cruzeiro's Bar", R.drawable.thewildrobot))
-        restaurants.add(Restaurant("Tex Mex Madrecita", R.drawable.mariasemples))
-        restaurants.add(Restaurant("Si Señor", R.drawable.themartian))
-        restaurants.add(Restaurant("All In Burguer", R.drawable.hediedwith))
-        restaurants.add(Restaurant("New Yorker Burger", R.drawable.thevigitarian))
+        val moshi = Moshi.Builder().build()
+        val type = Types.newParameterizedType(List::class.java, Restaurant::class.java)
+        val adapter = moshi.adapter<List<Restaurant>>(type)
+        this.restaurants = adapter.fromJson(com.squareup.moshi.JsonReader.of(
 
-        val myRecycler = findViewById<RecyclerView>(recycler_restaurants.id)
-        val myAdapter = RestaurantViewAdapter(this, restaurants)
-        myRecycler.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+                Okio.buffer(Okio.source(getResources().openRawResource(R.raw.restaurants_template)))
+
+            )
+        )!!
+
+        myRecycler = findViewById<RecyclerView>(recycler_restaurants.id)
+        myAdapter = RestaurantViewAdapter(this, restaurants)
+        myLayout = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+        myRecycler.layoutManager = myLayout
         myRecycler.adapter = myAdapter
+        var myScrollListener = RestaurantScrollListener()
+        myScrollListener.registerMap(this)
+        myRecycler.addOnScrollListener(myScrollListener)
 
     }
 
@@ -79,69 +89,30 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         mMap = googleMap
         mMap.setOnMyLocationButtonClickListener(this)
         mMap.setOnMapClickListener(this)
+        val style = MapStyleOptions.loadRawResourceStyle(
+                this, R.raw.style_map)
+        googleMap.setMapStyle(style)
 
         enableMyLocation()
         // Add a marker in res and move the camera
-        val res1 = LatLng(-23.647322, -46.5400726)
-        mMap.addMarker(MarkerOptions().position(res1).title("Marker in res"))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(res1))
-        
+        markMainRestaurant()
 
-        val res2 = LatLng(-23.6488817, -46.5400823)
-        mMap.addMarker(MarkerOptions().position(res2).title("Marker in res"))
-        
-        
+    }
 
-        val res3 = LatLng(-23.6501265, -46.5395923)
-        mMap.addMarker(MarkerOptions().position(res3).title("Marker in res"))
-        
-        
-
-        val res4 = LatLng(-23.6502741, -46.5394789)
-        mMap.addMarker(MarkerOptions().position(res4).title("Marker in res"))
-        
-        
-
-        val res5 = LatLng(-23.6505611, -46.5390032)
-        mMap.addMarker(MarkerOptions().position(res5).title("Marker in res"))
-        
-        
-
-        val res6 = LatLng(-23.6493992, -46.5401684)
-        mMap.addMarker(MarkerOptions().position(res6).title("Marker in res"))
-        
-        
-
-        val res7 = LatLng(-23.6520983, -46.5382491)
-        mMap.addMarker(MarkerOptions().position(res7).title("Marker in res"))
-        
-
-        val res8 = LatLng(-23.6532007, -46.5374512)
-        mMap.addMarker(MarkerOptions().position(res8).title("Marker in res"))
-        
-
-        val res9 = LatLng(-23.653856, -46.5373311)
-        mMap.addMarker(MarkerOptions().position(res9).title("Marker in res"))
-        
-
-        val res10 = LatLng(-23.6539032, -46.5397724)
-        mMap.addMarker(MarkerOptions().position(res10).title("Marker in res"))
-        
-
-        val res11 = LatLng(-23.6542284, -46.5367881)
-        mMap.addMarker(MarkerOptions().position(res11).title("Marker in res"))
-        
-
-        val res12 = LatLng(-23.6590383, -46.5362942)
-        mMap.addMarker(MarkerOptions().position(res12).title("Marker in res"))
-        
-
-        val res13 = LatLng(-23.6605835, -46.5381558)
-        mMap.addMarker(MarkerOptions().position(res13).title("Marker in res"))
-        
-        
+    fun markMainRestaurant() {
+        mMap.clear()
+        restaurants.stream().forEach {
+            if (it != restaurants[positionCard]) {
+                val coordinate = LatLng(it.latitude, it.longitude)
+                mMap.addMarker(MarkerOptions().position(coordinate).title(it.name)
+                        .icon(BitmapDescriptorFactory.fromResource(R.drawable.pin_unselected)))
+            }
+        }
+        val coordinate = LatLng(restaurants[positionCard].latitude, restaurants[positionCard].longitude)
+        mMap.addMarker(MarkerOptions().position(coordinate).title(restaurants[positionCard].name)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.pin_selected)))
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(coordinate))
         mMap.setMinZoomPreference(15.00f)
-        
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -166,4 +137,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     override fun onMapClick(p0: LatLng?) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+
+
+
 }

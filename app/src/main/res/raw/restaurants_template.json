@@ -1,0 +1,145 @@
+[
+  {
+    "id": 1,
+    "cnpj": "37.058.111.000.169",
+    "latitude": -23.647322,
+    "longitude": -46.5400726,
+    "email": "test@test.com",
+    "name": "Super Pizza Pan",
+    "phone": "09090-050",
+    "url": "http://www.superpizzapan.com.br/",
+    "address_id": 14
+  },
+  {
+    "id": 2,
+    "cnpj": "25.375.835.000.157",
+    "latitude": -23.6488817,
+    "longitude": -46.5400823,
+    "email": "contato@parrilladelcarmem.com.br",
+    "name": "Parrilla Del Carmem",
+    "phone": "09070-220",
+    "url": "http://www.parrilladelcarmem.com.br/",
+    "address_id": 15
+  },
+  {
+    "id": 3,
+    "cnpj": "7.360.076.000.177",
+    "latitude": -23.6501265,
+    "longitude": -46.5395923,
+    "email": "contato@redwoodstaekhouse.com.br",
+    "name": "Redwood Steakhouse",
+    "phone": "09080-300",
+    "url": "redwoodsteakhouse.com.br",
+    "address_id": 16
+  },
+  {
+    "id": 4,
+    "cnpj": "53.857.105.000.128",
+    "latitude": -23.6502741,
+    "longitude": -46.5394789,
+    "email": "contato@barfigueiras.com.br",
+    "name": "Bar Figueiras",
+    "phone": "09080-370",
+    "url": "http://www.barfigueiras.com.br/",
+    "address_id": 17
+  },
+  {
+    "id": 5,
+    "cnpj": "90.845.174.000.148",
+    "latitude": -23.6505611,
+    "longitude": -46.5390032,
+    "email": "sosantopizzabar@outlook.com",
+    "name": "S� Santo",
+    "phone": "09080-300",
+    "url": "http://www.sosantobar.com.br/",
+    "address_id": 18
+  },
+  {
+    "id": 6,
+    "cnpj": "55.238.936.000.147",
+    "latitude": -23.6493992,
+    "longitude": -46.5401684,
+    "email": "reserva@oldtownpub.com.br",
+    "name": "Old Town English Pub",
+    "phone": "09090-150",
+    "url": "http://www.oldtownpub.com.br/",
+    "address_id": 19
+  },
+  {
+    "id": 7,
+    "cnpj": "25.604.858.000.196",
+    "latitude": -23.6520983,
+    "longitude": -46.5382491,
+    "email": "test@test.com",
+    "name": "Heinsenburger & Beer",
+    "phone": "09080-370",
+    "url": "https://www.facebook.com/pg/HeisenBurgerBeer/",
+    "address_id": 20
+  },
+  {
+    "id": 8,
+    "cnpj": "17.257.541.000.100",
+    "latitude": -23.6532007,
+    "longitude": -46.5374512,
+    "email": "test@test.com",
+    "name": "El Botin Restaurante Mexicano",
+    "phone": "09090-770",
+    "url": "http://www.elbotin.com.br/",
+    "address_id": 21
+  },
+  {
+    "id": 9,
+    "cnpj": "91.640.547.000.107",
+    "latitude": -23.653856,
+    "longitude": -46.5373311,
+    "email": "test@test.com",
+    "name": "Make Your Burger",
+    "phone": "09090-521",
+    "url": "http://make-your-burger.negocio.site/",
+    "address_id": 22
+  },
+  {
+    "id": 10,
+    "cnpj": "33.459.835.000.163",
+    "latitude": 23.6539032,
+    "longitude": -46.5397724,
+    "email": "test@test.com",
+    "name": "Paulo Lanches",
+    "phone": "09090-521",
+    "url": "http://www.paulolanches.com/",
+    "address_id": 23
+  },
+  {
+    "id": 11,
+    "cnpj": "95.175.687.000.102",
+    "latitude": -23.6542284,
+    "longitude": -46.5367881,
+    "email": "test@test.com",
+    "name": "Burger for You",
+    "phone": "09080-300",
+    "url": "http://burgerforyou.negocio.site/",
+    "address_id": 24
+  },
+  {
+    "id": 12,
+    "cnpj": "99.575.521.000.134",
+    "latitude": -23.6590383,
+    "longitude": -46.5362942,
+    "email": "test@test.com",
+    "name": "Hamburgueria Fox",
+    "phone": "09041-031",
+    "url": "https://www.facebook.com/pg/foxhamburgueria/",
+    "address_id": 25
+  },
+  {
+    "id": 13,
+    "cnpj": "56.547.808.000.148",
+    "latitude": -23.6605835,
+    "longitude": -46.5381558,
+    "email": "test@test.com",
+    "name": "Tri Burger",
+    "phone": "09040-340",
+    "url": "http://www.3burger.com.br/",
+    "address_id": 26
+  }
+]
