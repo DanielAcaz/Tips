@@ -33,7 +33,7 @@ import okio.Okio
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener,
         ActivityCompat.OnRequestPermissionsResultCallback, GoogleMap.OnMapClickListener {
 
-    lateinit var mMap: GoogleMap
+    private var mMap: GoogleMap? = null
     private lateinit var restaurants: List<Restaurant>
     private lateinit var myRecycler: RecyclerView
     private lateinit var myAdapter: RestaurantViewAdapter
@@ -87,8 +87,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
      */
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
-        mMap.setOnMyLocationButtonClickListener(this)
-        mMap.setOnMapClickListener(this)
+        mMap?.setOnMyLocationButtonClickListener(this)
+        mMap?.setOnMapClickListener(this)
         val style = MapStyleOptions.loadRawResourceStyle(
                 this, R.raw.style_map)
         googleMap.setMapStyle(style)
@@ -100,19 +100,19 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     }
 
     fun markMainRestaurant() {
-        mMap.clear()
+        mMap?.clear()
         restaurants.stream().forEach {
             if (it != restaurants[positionCard]) {
                 val coordinate = LatLng(it.latitude, it.longitude)
-                mMap.addMarker(MarkerOptions().position(coordinate).title(it.name)
+                mMap?.addMarker(MarkerOptions().position(coordinate).title(it.name)
                         .icon(BitmapDescriptorFactory.fromResource(R.drawable.pin_unselected)))
             }
         }
         val coordinate = LatLng(restaurants[positionCard].latitude, restaurants[positionCard].longitude)
-        mMap.addMarker(MarkerOptions().position(coordinate).title(restaurants[positionCard].name)
+        mMap?.addMarker(MarkerOptions().position(coordinate).title(restaurants[positionCard].name)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.pin_selected)))
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(coordinate))
-        mMap.setMinZoomPreference(15.00f)
+        mMap?.moveCamera(CameraUpdateFactory.newLatLng(coordinate))
+        mMap?.setMinZoomPreference(17.00f)
     }
 
     @RequiresApi(Build.VERSION_CODES.M)
@@ -120,7 +120,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION), LOCATION_PERMISSION_REQUEST_CODE)
         } else if (mMap != null) {
-            mMap.isMyLocationEnabled = true
+            mMap?.isMyLocationEnabled = true
         }
 
     }
