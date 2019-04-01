@@ -56,30 +56,32 @@ class LoginActivity : AppCompatActivity() {
     }
 
     fun login(view: View){
-        if(tilUsernameLogin.validation()) {
-            val email = tilUsernameLogin.editText?.text.toString()
-            val password = tilPasswordLogin.editText?.text.toString()
-
-            mAuth.signInWithEmailAndPassword(email, password)
-                    .addOnCompleteListener(this) {
-                        if (it.isSuccessful){
-                            val user = mAuth.currentUser
-                            if(user!!.isEmailVerified) {
-                                intent = Intent(this, MapsActivity::class.java)
-                                startActivity(intent)
-                            }
-                        } else {
-                            if (it.exception is FirebaseAuthInvalidUserException?) {
-                                tilUsernameLogin.error = resources.getString(R.string.emailNotValid)
-                            } else if (it.exception is FirebaseAuthInvalidCredentialsException) {
-                                tilPasswordLogin.error = resources.getString(R.string.passwordNotValid)
-                            } else {
-                                Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()
-                            }
-                            Log.w("AUTH", "createUserWithEmail:failure", it.exception)
-                        }
-                    }
-        }
+//        if(tilUsernameLogin.validation()) {
+//            val email = tilUsernameLogin.editText?.text.toString()
+//            val password = tilPasswordLogin.editText?.text.toString()
+//
+//            mAuth.signInWithEmailAndPassword(email, password)
+//                    .addOnCompleteListener(this) {
+//                        if (it.isSuccessful){
+//                            val user = mAuth.currentUser
+//                            if(user!!.isEmailVerified) {
+//                                intent = Intent(this, MapsActivity::class.java)
+//                                startActivity(intent)
+//                            }
+//                        } else {
+//                            if (it.exception is FirebaseAuthInvalidUserException?) {
+//                                tilUsernameLogin.error = resources.getString(R.string.emailNotValid)
+//                            } else if (it.exception is FirebaseAuthInvalidCredentialsException) {
+//                                tilPasswordLogin.error = resources.getString(R.string.passwordNotValid)
+//                            } else {
+//                                Toast.makeText(this, "Authentication failed.", Toast.LENGTH_SHORT).show()
+//                            }
+//                            Log.w("AUTH", "createUserWithEmail:failure", it.exception)
+//                        }
+//                    }
+//        }
+        intent = Intent(this, MapsActivity::class.java)
+        startActivity(intent)
     }
 
     fun signIn(view: View){

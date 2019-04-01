@@ -17,4 +17,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MyRatingBar" parent="Widget.AppCompat.RatingBar.Small">
+        <item name="colorControlNormal">#FFFFFF</item>
+        <item name="colorControlActivated">#0099FF</item>
+    </style>
+
 </resources>

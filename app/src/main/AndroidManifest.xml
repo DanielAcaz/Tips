@@ -16,7 +16,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.GridRestaurantsActivity"></activity>
+        <activity android:name=".view.GridRestaurantsActivity" />
         <activity
             android:name=".view.LoginActivity"
             android:theme="@style/CustomNoActionBar">
@@ -45,7 +45,7 @@
         <activity
             android:name=".view.MapsActivity"
             android:label="@string/title_activity_maps"
-            android:theme="@style/CustomNoActionBar"/>
+            android:theme="@style/CustomNoActionBar" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -75,6 +75,9 @@
             android:theme="@style/CustomNoActionBar" />
         <activity
             android:name=".view.ForgotPasswordActivity"
+            android:theme="@style/CustomNoActionBar" />
+        <activity
+            android:name=".view.RestaurantActivity"
             android:theme="@style/CustomNoActionBar" />
     </application>
 

@@ -1,5 +1,6 @@
 package br.com.broscoder.tips.view
 
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Build
@@ -135,7 +136,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     }
 
     override fun onMapClick(p0: LatLng?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        intent = Intent(this, RestaurantActivity::class.java)
+        startActivity(intent)
     }
 
 
