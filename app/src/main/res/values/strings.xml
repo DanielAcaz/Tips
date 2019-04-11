@@ -18,4 +18,6 @@
     <string name="menu_button_restaurant">Menu</string>
     <string name="open_table_button">Open Table</string>
     <string name="just_when_it_is_in_local">Just when it is in local</string>
+    <string name="new_order">New Order</string>
+    <string name="close_account">Close Account</string>
 </resources>
