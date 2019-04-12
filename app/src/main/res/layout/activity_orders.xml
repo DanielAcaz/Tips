@@ -12,15 +12,18 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/raleway_bold"
         android:gravity="center"
-        android:text="Burger For You"
         android:hint="@string/hint_restaurant_name"
+        android:paddingTop="12dp"
+        android:text="Burger For You"
         android:textAlignment="center"
         android:textColor="#0099FF"
-        android:textSize="30dp" />
+        android:textSize="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="450dp"
         android:orientation="vertical">
 
     </android.support.v7.widget.RecyclerView>
@@ -34,17 +37,19 @@
 
         <Switch
             android:id="@+id/switch1"
-            android:layout_width="wrap_content"
+            android:layout_width="142dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/raleway_bold"
             android:paddingRight="10dp"
             android:text="My Orders" />
 
         <Switch
             android:id="@+id/switch2"
-            android:layout_width="wrap_content"
+            android:layout_width="172dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:fontFamily="@font/raleway_bold"
             android:paddingLeft="10dp"
             android:text="Friend's Orders" />
 
@@ -54,33 +59,50 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        tools:layout_editor_absoluteY="368dp">
 
         <Button
-            android:id="@+id/newOrderButton"
+            android:id="@+id/friendsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="78dp"
-            android:layout_marginTop="71dp"
+            android:layout_marginStart="3dp"
             android:background="@drawable/shape_button_restaurant"
             android:fontFamily="@font/raleway_bold"
-            android:text="@string/new_order"
+            android:text="@string/friendsButton"
             android:textColor="#FFFFFF"
+            app:layout_constraintBaseline_toBaselineOf="@+id/orderButton"
+            app:layout_constraintEnd_toStartOf="@+id/orderButton"
             app:layout_constraintStart_toStartOf="parent"
+            android:onClick="addFriends"/>
+
+        <Button
+            android:id="@+id/orderButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="12dp"
+            android:background="@drawable/shape_button_restaurant"
+            android:fontFamily="@font/raleway_bold"
+            android:text="@string/orderButton"
+            android:textColor="#FFFFFF"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/closeAccoountButton"
+            app:layout_constraintStart_toEndOf="@+id/friendsButton"
             app:layout_constraintTop_toTopOf="parent" />
 
         <Button
-            android:id="@+id/coloseAccountButton"
+            android:id="@+id/closeAccoountButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="53dp"
+            android:layout_marginEnd="16dp"
             android:background="@drawable/shape_button_restaurant"
             android:fontFamily="@font/raleway_bold"
-            android:text="@string/close_account"
+            android:text="@string/payButton"
             android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="@+id/newOrderButton"
+            app:layout_constraintBaseline_toBaselineOf="@+id/orderButton"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/newOrderButton" />
+            app:layout_constraintStart_toEndOf="@+id/orderButton" />
+
     </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>

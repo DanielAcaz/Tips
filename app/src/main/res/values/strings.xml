@@ -20,4 +20,7 @@
     <string name="just_when_it_is_in_local">Just when it is in local</string>
     <string name="new_order">New Order</string>
     <string name="close_account">Close Account</string>
+    <string name="payButton">Pay</string>
+    <string name="orderButton">+ Order</string>
+    <string name="friendsButton">+ Friends</string>
 </resources>
