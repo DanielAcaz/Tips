@@ -60,32 +60,32 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:orientation="horizontal"
-        tools:layout_editor_absoluteY="368dp">
+        tools:layout_editor_absoluteY="530dp">
 
         <Button
             android:id="@+id/friendsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
+            android:layout_marginStart="16dp"
             android:background="@drawable/shape_button_restaurant"
             android:fontFamily="@font/raleway_bold"
+            android:onClick="addFriends"
             android:text="@string/friendsButton"
             android:textColor="#FFFFFF"
             app:layout_constraintBaseline_toBaselineOf="@+id/orderButton"
-            app:layout_constraintEnd_toStartOf="@+id/orderButton"
-            app:layout_constraintStart_toStartOf="parent"
-            android:onClick="addFriends"/>
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/orderButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="30dp"
             android:background="@drawable/shape_button_restaurant"
             android:fontFamily="@font/raleway_bold"
             android:text="@string/orderButton"
             android:textColor="#FFFFFF"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/closeAccoountButton"
             app:layout_constraintStart_toEndOf="@+id/friendsButton"
             app:layout_constraintTop_toTopOf="parent" />
@@ -100,8 +100,7 @@
             android:text="@string/payButton"
             android:textColor="#FFFFFF"
             app:layout_constraintBaseline_toBaselineOf="@+id/orderButton"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/orderButton" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
     </android.support.constraint.ConstraintLayout>
 

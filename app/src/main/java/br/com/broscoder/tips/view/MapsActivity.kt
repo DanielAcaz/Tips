@@ -21,10 +21,7 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.BitmapDescriptorFactory
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MapStyleOptions
-import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.*
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import kotlinx.android.synthetic.main.activity_maps.*
@@ -32,7 +29,7 @@ import okio.Okio
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener,
-        ActivityCompat.OnRequestPermissionsResultCallback, GoogleMap.OnMapClickListener {
+        ActivityCompat.OnRequestPermissionsResultCallback, GoogleMap.OnMapClickListener, GoogleMap.OnMarkerClickListener {
 
     private var mMap: GoogleMap? = null
     private lateinit var restaurants: List<Restaurant>
@@ -66,7 +63,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
             )
         )!!
 
-        myRecycler = findViewById<RecyclerView>(recycler_restaurants.id)
+        myRecycler = findViewById(recycler_restaurants.id)
         myAdapter = RestaurantViewAdapter(this, restaurants)
         myLayout = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         myRecycler.layoutManager = myLayout
@@ -141,5 +138,13 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     }
 
 
-
+    override fun onMarkerClick(marker: Marker?): Boolean {
+        val restaurant = restaurants.find { r -> r.name.equals(marker?.title) }
+        if(restaurant != null) {
+            myRecycler.scrollToPosition((myAdapter.getPositionBy(restaurant)))
+            return true
+        } else {
+            return false
+        }
+    }
 }

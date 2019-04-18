@@ -11,8 +11,10 @@ class RestaurantScrollListener : RecyclerView.OnScrollListener() {
 
     override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
         val layout = recyclerView.layoutManager as LinearLayoutManager
-        map.positionCard = layout.findFirstCompletelyVisibleItemPosition()
-        map.markMainRestaurant()
+        if(layout.findFirstCompletelyVisibleItemPosition() >= 0) {
+            map.positionCard = layout.findFirstCompletelyVisibleItemPosition()
+            map.markMainRestaurant()
+        }
         Log.i("[RECYCLER LISTENER]", "PositionCard = ${layout.findFirstCompletelyVisibleItemPosition()}")
     }
 
