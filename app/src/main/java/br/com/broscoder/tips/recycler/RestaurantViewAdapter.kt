@@ -42,6 +42,5 @@ class RestaurantViewAdapter(private val context: Context, private val data: List
     class RestaurantViewHolder(view: View): RecyclerView.ViewHolder(view) {
         val restaurantName = view.findViewById<TextView>(R.id.restaurant_name)
         val restaurantImage = view.findViewById<ImageView>(R.id.restaurant_image)
-
     }
 }

@@ -87,6 +87,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         mMap = googleMap
         mMap?.setOnMyLocationButtonClickListener(this)
         mMap?.setOnMapClickListener(this)
+        mMap?.setOnMarkerClickListener(this)
         val style = MapStyleOptions.loadRawResourceStyle(
                 this, R.raw.style_map)
         googleMap.setMapStyle(style)
@@ -147,4 +148,5 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
             return false
         }
     }
+
 }
