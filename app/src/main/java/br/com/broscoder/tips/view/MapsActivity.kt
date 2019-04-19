@@ -85,6 +85,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
             intent.putExtra("restaurant", it)
             intent.putExtra("item", item)
             startActivity(intent)
+            finish()
         }
         myLayout = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         myRecycler.layoutManager = myLayout
@@ -155,8 +156,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     }
 
     override fun onMapClick(p0: LatLng?) {
-        intent = Intent(this, RestaurantActivity::class.java)
-        startActivity(intent)
+
     }
 
 

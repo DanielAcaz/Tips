@@ -2,11 +2,12 @@ package br.com.broscoder.tips.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 
 data class RestaurantItems(val id: Long,
-                           val restaurantId: Long,
+                           @SerializedName("id_restaurant") val restaurantId: Long,
                            val lotation: String,
-                           val waitTime: Long,
+                           @SerializedName("wait_time") val waitTime: Long,
                            val price: Double,
                            val rating: Int) : Parcelable {
 

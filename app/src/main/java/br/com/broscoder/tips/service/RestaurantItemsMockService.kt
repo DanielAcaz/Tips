@@ -36,7 +36,7 @@ class RestaurantItemsMockService: RestaurantItemsService {
     override fun getRestaurantItemsByRestaurantId(restaurantId: Long): List<RestaurantItems> {
         if (items.isNullOrEmpty()) getRestaurantItems()
         return items.let {
-            it.stream().filter { restaurantId == restaurantId }.toList()
+            it.stream().filter { restaurantId == it.restaurantId }.toList()
         }
     }
 

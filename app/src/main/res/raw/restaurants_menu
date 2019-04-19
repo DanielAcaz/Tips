@@ -1,0 +1,262 @@
+[
+  {
+    "id": 1,
+    "id_restaurant": 13,
+    "type": "MAIN_COURSE",
+    "name": "Combo cheeseburger pcq 90g + fritas + refri",
+    "description": "Delicioso burger de 90g grelhado com queijo americano no pão de brioche selado na manteiga. Fritas e refri acompanha",
+    "price": 21,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 2,
+    "id_restaurant": 13,
+    "type": "MAIN_COURSE",
+    "name": "Single 90g",
+    "description": "Delicioso burger de 90g grelhado, queijo americano, maionese, cebola, alface, tomate.",
+    "price": 21,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 3,
+    "id_restaurant": 13,
+    "type": "MAIN_COURSE",
+    "name": "Single 160g",
+    "description": "Delicioso burger de 160g grelhado, queijo americano, maionese, cebola, alface, tomate.",
+    "price": 29,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 4,
+    "id_restaurant": 13,
+    "type": "MAIN_COURSE",
+    "name": "Double 90g",
+    "description": "Dois deliciosos burgers de 90g grelhado, queijo americano, maionese, cebola, alface e tomate.",
+    "price": 31,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 5,
+    "id_restaurant": 13,
+    "type": "MAIN_COURSE",
+    "name": "Double 160g",
+    "description": "Dois deliciosos burgers de 160g grelhado, queijo americano, maionese, cebola, alface, tomate.",
+    "price": 39,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 6,
+    "id_restaurant": 13,
+    "type": "MAIN_COURSE",
+    "name": "Tri Burger 90g",
+    "description": "Três deliciosos burgers de 90g grelhado, queijo americano, maionese, cebola, alface, tomate.",
+    "price": 41,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 7,
+    "id_restaurant": 13,
+    "type": "MAIN_COURSE",
+    "name": "Tri Burger 160g",
+    "description": "Três deliciosos burgers de 160g grelhado, queijo americano, maionese, cebola, alface, tomate",
+    "price": 49,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 8,
+    "id_restaurant": 13,
+    "type": "APPETIZER",
+    "name": "Aloha Fries",
+    "description": "Basket fries com cheddar e bacon.",
+    "price": 36,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 9,
+    "id_restaurant": 13,
+    "type": "APPETIZER",
+    "name": "Fritas Grande",
+    "description": "Fritas grande, serve até 4 pessoas",
+    "price": 29,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 10,
+    "id_restaurant": 13,
+    "type": "APPETIZER",
+    "name": "Fritas Média",
+    "description": "Fritas média, serve até duas pessoasR",
+    "price": 18,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 11,
+    "id_restaurant": 13,
+    "type": "APPETIZER",
+    "name": "Queijo quente Americano",
+    "description": "Queijo quente com ovo e bacon prensadão na chapa!",
+    "price": 9,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 12,
+    "id_restaurant": 13,
+    "type": "APPETIZER",
+    "name": "Mozzarella Sticks",
+    "description": "Mozzarella sticks Acompanha molho marinara.",
+    "price": 22,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 13,
+    "id_restaurant": 13,
+    "type": "APPETIZER",
+    "name": "Queijo Quente",
+    "description": "Queijo quente prensadão na chapa!",
+    "price": 5,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 14,
+    "id_restaurant": 13,
+    "type": "OTHERS",
+    "name": "Tri Dog Style",
+    "description": "Salsicha da casa coberta por pimentão verde e cebola em cubos, acom panha fritasR",
+    "price": 23,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 15,
+    "id_restaurant": 13,
+    "type": "OTHERS",
+    "name": "Cheese Dog",
+    "description": "Salsicha da casa coberta por m olho cheddar, acompanha fritas",
+    "price": 23,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 16,
+    "id_restaurant": 13,
+    "type": "OTHERS",
+    "name": "Tijuana Dog Style",
+    "description": "Salsicha da casa coberta por queijo, jalapeno e sour cream. Acompanha fritas",
+    "price": 26,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 17,
+    "id_restaurant": 13,
+    "type": "VEGGIE_COURSE",
+    "name": "Berinjela Burger",
+    "description": "Berinjela Burger preparado artesanalmente em um em panado de berinjela, alface, cebola e tomate",
+    "price": 22,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 18,
+    "id_restaurant": 13,
+    "type": "VEGGIE_COURSE",
+    "name": "Abobrinha Burger",
+    "description": "Abobrinha Burger preparado artesanalmente em um empanado de abobrinha, alface, cebola e tomate.",
+    "price": 22,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 19,
+    "id_restaurant": 13,
+    "type": "VEGGIE_COURSE",
+    "name": "Mix de cogumelos",
+    "description": "Mix de cogumelos Burger preparado artesanalmente em um em panado de shimeji branco, shimeji-preto, shitake e quinoa. Alface, cebola e tomate.",
+    "price": 28,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 20,
+    "id_restaurant": 13,
+    "type": "SALAD",
+    "name": "Garden salad",
+    "description": "Alface americana, repolho roxo, cebola, tomate, cenoura, azeitona preta e tiras de frango grelhado.",
+    "price": 31.99,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 21,
+    "id_restaurant": 13,
+    "type": "DRINKS",
+    "name": "Cerveja Long Neck",
+    "description": "",
+    "price": 10,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 22,
+    "id_restaurant": 13,
+    "type": "DRINKS",
+    "name": "Cerveja 600ml",
+    "description": "",
+    "price": 34,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 23,
+    "id_restaurant": 13,
+    "type": "DRINKS",
+    "name": "Refrigerante",
+    "description": "",
+    "price": 7,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 24,
+    "id_restaurant": 13,
+    "type": "DRINKS",
+    "name": "Água",
+    "description": "",
+    "price": 5,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 25,
+    "id_restaurant": 13,
+    "type": "DESSERT",
+    "name": "Brownie",
+    "description": "Nosso brownie é delicioso, feito por minha mãe dona eulália à mais de 40 anos. Obs. Ao recebe-lo é só retirar da embalagem e esquentar no microondas e se deliciar",
+    "price": 15,
+    "active": true,
+    "group_menu_id": 1
+  },
+  {
+    "id": 26,
+    "id_restaurant": 13,
+    "type": "DRINKS",
+    "name": "Bowl Açai",
+    "description": "Açai 500ml",
+    "price": 25,
+    "active": true,
+    "group_menu_id": 1
+  }
+]
