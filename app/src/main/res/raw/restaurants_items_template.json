@@ -1,0 +1,106 @@
+[
+  {
+    "id": 1,
+    "id_restaurant": 1,
+    "lotation": "HIGH",
+    "wait_time": 2700000,
+    "price": 67,
+    "rating": 5
+  },
+  {
+    "id": 2,
+    "id_restaurant": 2,
+    "lotation": "LOW",
+    "wait_time": 1800000,
+    "price": 45,
+    "rating": 5
+  },
+  {
+    "id": 3,
+    "id_restaurant": 3,
+    "lotation": "MEDIUM",
+    "wait_time": 2700000,
+    "price": 70,
+    "rating": 5
+  },
+  {
+    "id": 4,
+    "id_restaurant": 4,
+    "lotation": "HIGH",
+    "wait_time": 3600000,
+    "price": 35,
+    "rating": 4
+  },
+  {
+    "id": 5,
+    "id_restaurant": 5,
+    "lotation": "MEDIUM",
+    "wait_time": 4800000,
+    "price": 35,
+    "rating": 3
+  },
+  {
+    "id": 6,
+    "id_restaurant": 6,
+    "lotation": "HIGH",
+    "wait_time": 7200000,
+    "price": 60,
+    "rating": 4
+  },
+  {
+    "id": 7,
+    "id_restaurant": 7,
+    "lotation": "LOW",
+    "wait_time": 2100000,
+    "price": 45,
+    "rating": 4
+  },
+  {
+    "id": 8,
+    "id_restaurant": 8,
+    "lotation": "MEDIUM",
+    "wait_time": 1800000,
+    "price": 70,
+    "rating": 5
+  },
+  {
+    "id": 9,
+    "id_restaurant": 9,
+    "lotation": "HIGH",
+    "wait_time": 2400000,
+    "price": 68,
+    "rating": 3
+  },
+  {
+    "id": 10,
+    "id_restaurant": 10,
+    "lotation": "HIGH",
+    "wait_time": 2700000,
+    "price": 45,
+    "rating": 4
+  },
+  {
+    "id": 11,
+    "id_restaurant": 11,
+    "lotation": "LOW",
+    "wait_time": 3600000,
+    "price": 47,
+    "rating": 3
+  },
+  {
+    "id": 12,
+    "id_restaurant": 12,
+    "lotation": "MEDIUM",
+    "wait_time": 4800000,
+    "price": 67,
+    "rating": 5
+  },
+  {
+    "id": 13,
+    "id_restaurant": 13,
+    "lotation": "HIGH",
+    "wait_time": 7200000,
+    "price": 50,
+    "rating": 4
+  }
+]

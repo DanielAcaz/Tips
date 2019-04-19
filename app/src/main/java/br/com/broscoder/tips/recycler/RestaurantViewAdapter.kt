@@ -5,13 +5,13 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
-import android.widget.TextView
 import br.com.broscoder.tips.R
 import br.com.broscoder.tips.model.Restaurant
 import com.squareup.picasso.Picasso
+import kotlinx.android.synthetic.main.activity_grid_restaurants.view.*
 
-class RestaurantViewAdapter(private val context: Context, private val data: List<Restaurant>): RecyclerView.Adapter<RestaurantViewAdapter.RestaurantViewHolder>() {
+class RestaurantViewAdapter(private val context: Context, private val data: List<Restaurant>,
+                            val listener: (Restaurant) -> Unit): RecyclerView.Adapter<RestaurantViewAdapter.RestaurantViewHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, index: Int): RestaurantViewHolder {
         val mInflater = LayoutInflater.from(context)
@@ -24,9 +24,9 @@ class RestaurantViewAdapter(private val context: Context, private val data: List
     }
 
     override fun onBindViewHolder(viewHolder: RestaurantViewHolder, position: Int) {
-        viewHolder.restaurantName.text = data[position].name
-        if (data[position].image.isNotEmpty()) {
-            Picasso.get().load(data[position].image).into(viewHolder.restaurantImage)
+        val restaurant = data[position]
+        viewHolder?.let {
+            it.binView(restaurant, listener)
         }
     }
 
@@ -38,9 +38,20 @@ class RestaurantViewAdapter(private val context: Context, private val data: List
         }
         return -1
     }
-
     class RestaurantViewHolder(view: View): RecyclerView.ViewHolder(view) {
-        val restaurantName = view.findViewById<TextView>(R.id.restaurant_name)
-        val restaurantImage = view.findViewById<ImageView>(R.id.restaurant_image)
+
+        fun binView(restaurant: Restaurant,
+                    listener: (Restaurant) -> Unit) = with(itemView) {
+
+            restaurant_name.text = restaurant.name
+            if (isNotNullAndNotEmpty(restaurant)) {
+                Picasso.get().load(restaurant.image).into(restaurant_image)
+            }
+
+            setOnClickListener {listener(restaurant)}
+        }
+
+        private fun isNotNullAndNotEmpty(restaurant: Restaurant) =
+                !restaurant.image.isNullOrEmpty()
     }
 }

@@ -14,14 +14,25 @@ import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.widget.Toast
 import br.com.broscoder.tips.R
+import br.com.broscoder.tips.enums.Scenario
+import br.com.broscoder.tips.error.RestaurantItemNotFoundException
+import br.com.broscoder.tips.factory.ItemsFactory
+import br.com.broscoder.tips.factory.RestaurantFactory
 import br.com.broscoder.tips.recycler.RestaurantViewAdapter
 import br.com.broscoder.tips.model.Restaurant
+import br.com.broscoder.tips.model.RestaurantItems
 import br.com.broscoder.tips.recycler.RestaurantScrollListener
+import br.com.broscoder.tips.service.RestaurantItemsService
+import br.com.broscoder.tips.service.RestaurantService
+import br.com.broscoder.tips.service.TipsService
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.google.gson.stream.JsonReader
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import kotlinx.android.synthetic.main.activity_maps.*
@@ -31,11 +42,14 @@ import okio.Okio
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener,
         ActivityCompat.OnRequestPermissionsResultCallback, GoogleMap.OnMapClickListener, GoogleMap.OnMarkerClickListener {
 
+    private val scenario = Scenario.MOCK
+
     private var mMap: GoogleMap? = null
     private lateinit var restaurants: List<Restaurant>
     private lateinit var myRecycler: RecyclerView
     private lateinit var myAdapter: RestaurantViewAdapter
     private lateinit var myLayout: LinearLayoutManager
+    private lateinit var service: TipsService
 
     var positionCard = 0
 
@@ -48,23 +62,30 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maps)
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        val moshi = Moshi.Builder().build()
-        val type = Types.newParameterizedType(List::class.java, Restaurant::class.java)
-        val adapter = moshi.adapter<List<Restaurant>>(type)
-        this.restaurants = adapter.fromJson(com.squareup.moshi.JsonReader.of(
-
-                Okio.buffer(Okio.source(getResources().openRawResource(R.raw.restaurants_template)))
-
-            )
-        )!!
+        service = RestaurantFactory(this).createServiceBy(scenario)
+        this.restaurants = (service as RestaurantService).getRestaurants()
+        service = ItemsFactory(this).createServiceBy(scenario)
 
         myRecycler = findViewById(recycler_restaurants.id)
-        myAdapter = RestaurantViewAdapter(this, restaurants)
+        myAdapter = RestaurantViewAdapter(this, restaurants) {
+
+            val item = (service as RestaurantItemsService)
+                    .getRestaurantItemsByRestaurantId(it.id)
+                    .stream()
+                    .findFirst()
+                    .orElseThrow {RestaurantItemNotFoundException()}
+
+            val intent = Intent(this,RestaurantActivity::class.java)
+            intent.putExtra("restaurant", it)
+            intent.putExtra("item", item)
+            startActivity(intent)
+        }
         myLayout = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         myRecycler.layoutManager = myLayout
         myRecycler.adapter = myAdapter
@@ -130,7 +151,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
     }
 
     override fun onMyLocationClick(p0: Location) {
-        Toast.makeText(this, "Current location:\n" + p0, Toast.LENGTH_LONG).show()
+        Toast.makeText(this, "Current lotation:\n" + p0, Toast.LENGTH_LONG).show()
     }
 
     override fun onMapClick(p0: LatLng?) {
