@@ -3,7 +3,6 @@ package br.com.broscoder.tips.service
 import android.content.Context
 import br.com.broscoder.tips.R
 import br.com.broscoder.tips.error.RestaurantItemNotFoundException
-import br.com.broscoder.tips.model.Items
 import br.com.broscoder.tips.model.Menu
 import br.com.broscoder.tips.model.TipsModel
 import com.google.gson.Gson
@@ -15,7 +14,7 @@ class MenuMockService(override val context: Context, private var menus: List<Tip
 
     override fun getAll(): List<TipsModel> {
         val gson = Gson()
-        val listType = object : TypeToken<List<Items>>() { }.type
+        val listType = object : TypeToken<List<Menu>>() { }.type
         val jsonString = context.getResources().openRawResource(R.raw.restaurants_menu).bufferedReader().use { it.readText() }
         this.menus = gson.fromJson<List<Menu>>(jsonString, listType)
         return menus
