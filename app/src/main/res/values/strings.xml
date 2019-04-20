@@ -23,4 +23,5 @@
     <string name="payButton">Pay</string>
     <string name="orderButton">+ Order</string>
     <string name="friendsButton">+ Friends</string>
+    <string name="type_menu_name">Main Course</string>
 </resources>

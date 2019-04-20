@@ -4,7 +4,7 @@
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
-         location permissions for the 'MyLocation' functionality. 
+         lotation permissions for the 'MyLocation' functionality.
     -->
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -16,7 +16,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.GridRestaurantsActivity" />
         <activity
             android:name=".view.LoginActivity"
             android:theme="@style/CustomNoActionBar">
@@ -83,8 +82,10 @@
             android:name=".view.OrdersActivity"
             android:theme="@style/CustomNoActionBar" />
         <activity
-            android:name=".view.FriendsActivity"
+            android:name=".view.FriendsActivity"/>
+        <activity android:name=".view.MenuActivity"
             android:theme="@style/CustomNoActionBar" />
+        <activity android:name=".view.GridRestaurantsActivity" />
     </application>
 
 </manifest>

@@ -6,18 +6,20 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import br.com.broscoder.tips.R
 import br.com.broscoder.tips.model.Restaurant
-import br.com.broscoder.tips.model.RestaurantItems
+import br.com.broscoder.tips.model.Items
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.activity_restaurant.*
 
 class RestaurantActivity : AppCompatActivity() {
 
+    lateinit var restaurant: Restaurant
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_restaurant)
 
-        val restaurant = intent.getParcelableExtra<Restaurant>("restaurant")
-        val item = intent.getParcelableExtra<RestaurantItems>("item")
+        this.restaurant = intent.getParcelableExtra<Restaurant>("restaurant")
+        val item = intent.getParcelableExtra<Items>("item")
         restaurant_name.text = restaurant.name
         getRestaurantImage(restaurant)
         lotation.text = item.lotation
@@ -41,5 +43,11 @@ class RestaurantActivity : AppCompatActivity() {
 
     private fun inMiniute(miliseconds: Long) : Long {
         return (miliseconds/1000)/60
+    }
+
+    fun openMenu(view: View) {
+        intent = Intent(this, MenuActivity::class.java)
+        intent.putExtra("restaurant_id", this.restaurant.id)
+        startActivity(intent)
     }
 }

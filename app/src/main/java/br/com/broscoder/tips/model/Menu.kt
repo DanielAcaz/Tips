@@ -5,5 +5,5 @@ data class Menu(var id: Long,
                 var type: String,
                 var name: String,
                 var description: String,
-                var price: Double) {
+                var price: Double) : TipsModel {
 }

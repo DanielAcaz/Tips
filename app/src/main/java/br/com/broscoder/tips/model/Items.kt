@@ -4,12 +4,12 @@ import android.os.Parcel
 import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
 
-data class RestaurantItems(val id: Long,
-                           @SerializedName("id_restaurant") val restaurantId: Long,
-                           val lotation: String,
-                           @SerializedName("wait_time") val waitTime: Long,
-                           val price: Double,
-                           val rating: Int) : Parcelable {
+data class Items(val id: Long,
+                 @SerializedName("id_restaurant") val restaurantId: Long,
+                 val lotation: String,
+                 @SerializedName("wait_time") val waitTime: Long,
+                 val price: Double,
+                 val rating: Int) : Parcelable, TipsModel {
 
     constructor(parcel: Parcel) : this(
             parcel.readLong(),
@@ -32,12 +32,12 @@ data class RestaurantItems(val id: Long,
         return 0
     }
 
-    companion object CREATOR : Parcelable.Creator<RestaurantItems> {
-        override fun createFromParcel(parcel: Parcel): RestaurantItems {
-            return RestaurantItems(parcel)
+    companion object CREATOR : Parcelable.Creator<Items> {
+        override fun createFromParcel(parcel: Parcel): Items {
+            return Items(parcel)
         }
 
-        override fun newArray(size: Int): Array<RestaurantItems?> {
+        override fun newArray(size: Int): Array<Items?> {
             return arrayOfNulls(size)
         }
     }

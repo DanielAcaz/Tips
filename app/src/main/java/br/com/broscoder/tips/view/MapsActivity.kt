@@ -11,32 +11,23 @@ import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.widget.Toast
 import br.com.broscoder.tips.R
 import br.com.broscoder.tips.enums.Scenario
 import br.com.broscoder.tips.error.RestaurantItemNotFoundException
 import br.com.broscoder.tips.factory.ItemsFactory
 import br.com.broscoder.tips.factory.RestaurantFactory
-import br.com.broscoder.tips.recycler.RestaurantViewAdapter
+import br.com.broscoder.tips.model.Items
 import br.com.broscoder.tips.model.Restaurant
-import br.com.broscoder.tips.model.RestaurantItems
 import br.com.broscoder.tips.recycler.RestaurantScrollListener
-import br.com.broscoder.tips.service.RestaurantItemsService
-import br.com.broscoder.tips.service.RestaurantService
+import br.com.broscoder.tips.recycler.RestaurantViewAdapter
 import br.com.broscoder.tips.service.TipsService
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.*
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import com.google.gson.stream.JsonReader
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.Types
 import kotlinx.android.synthetic.main.activity_maps.*
-import okio.Okio
 
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener,
@@ -67,23 +58,22 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
         val mapFragment = supportFragmentManager
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
-
         service = RestaurantFactory(this).createServiceBy(scenario)
-        this.restaurants = (service as RestaurantService).getRestaurants()
+        restaurants = service.getAll().filterIsInstance<Restaurant>()
         service = ItemsFactory(this).createServiceBy(scenario)
 
         myRecycler = findViewById(recycler_restaurants.id)
         myAdapter = RestaurantViewAdapter(this, restaurants) {
 
-            val item = (service as RestaurantItemsService)
-                    .getRestaurantItemsByRestaurantId(it.id)
+            val item = service
+                    .getByRestaurantId(it.id)
                     .stream()
                     .findFirst()
                     .orElseThrow {RestaurantItemNotFoundException()}
 
             val intent = Intent(this,RestaurantActivity::class.java)
             intent.putExtra("restaurant", it)
-            intent.putExtra("item", item)
+            intent.putExtra("item", item as Items)
             startActivity(intent)
             finish()
         }

@@ -7,7 +7,7 @@ data class Restaurant(var id: Long,
                       var name: String,
                       var latitude:Double,
                       var longitude:Double,
-                      var image: String = "") : Parcelable {
+                      var image: String = "") : Parcelable, TipsModel {
 
     constructor(parcel: Parcel) : this(
             parcel.readLong(),
