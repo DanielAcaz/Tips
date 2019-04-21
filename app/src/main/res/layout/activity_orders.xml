@@ -7,32 +7,89 @@
     tools:context=".view.OrdersActivity"
     android:orientation="vertical">
 
-    <TextView
+    <ImageView
+        android:id="@+id/restaurant_image"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:src="@drawable/food"
+        android:scaleType="centerCrop" />
+
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/raleway_bold"
-        android:gravity="center"
-        android:hint="@string/hint_restaurant_name"
-        android:paddingTop="12dp"
-        android:text="Burger For You"
-        android:textAlignment="center"
-        android:textColor="#0099FF"
-        android:textSize="30dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:orientation="horizontal"
+        android:paddingBottom="6dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Order"
+            android:fontFamily="@font/raleway_bold"
+            android:paddingTop="5dp"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/restaurant_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/raleway_bold"
+            android:hint="@string/hint_restaurant_name"
+            android:paddingTop="5dp"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+
 
     <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_order"
         android:layout_width="match_parent"
-        android:layout_height="450dp"
+        android:layout_height="400dp"
         android:orientation="vertical">
 
     </android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp">
+
+        <Button
+            android:id="@+id/friendsButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_button_restaurant"
+            android:fontFamily="@font/raleway_bold"
+            android:onClick="addFriends"
+            android:text="@string/friendsButton"
+            android:textColor="#000000"
+            android:textAllCaps="false"
+            android:paddingLeft="6dp"/>
+
+        <Button
+            android:id="@+id/orderButton"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_button_restaurant"
+            android:fontFamily="@font/raleway_bold"
+            android:text="@string/orderButton"
+            android:textColor="#000000"
+            android:onClick="doOrder"
+            android:textAllCaps="false"
+            android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:gravity="center">
+        android:gravity="center"
+        android:paddingBottom="4dp">
 
 
         <Switch
@@ -55,54 +112,16 @@
 
     </LinearLayout>
 
-    <android.support.constraint.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="horizontal"
-        tools:layout_editor_absoluteY="530dp">
+    <Button
+        android:id="@+id/closeAccoountButton"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_button_open_table"
+        android:fontFamily="@font/raleway_bold"
+        android:text="@string/payButton"
+        android:textColor="#000000" />
 
-        <Button
-            android:id="@+id/friendsButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:background="@drawable/shape_button_restaurant"
-            android:fontFamily="@font/raleway_bold"
-            android:onClick="addFriends"
-            android:text="@string/friendsButton"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBaseline_toBaselineOf="@+id/orderButton"
-            app:layout_constraintStart_toStartOf="parent" />
 
-        <Button
-            android:id="@+id/orderButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="56dp"
-            android:layout_marginEnd="30dp"
-            android:background="@drawable/shape_button_restaurant"
-            android:fontFamily="@font/raleway_bold"
-            android:text="@string/orderButton"
-            android:textColor="#FFFFFF"
-            app:layout_constraintEnd_toStartOf="@+id/closeAccoountButton"
-            app:layout_constraintStart_toEndOf="@+id/friendsButton"
-            app:layout_constraintTop_toTopOf="parent"
-            android:onClick="doOrder"/>
-
-        <Button
-            android:id="@+id/closeAccoountButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:background="@drawable/shape_button_restaurant"
-            android:fontFamily="@font/raleway_bold"
-            android:text="@string/payButton"
-            android:textColor="#FFFFFF"
-            app:layout_constraintBaseline_toBaselineOf="@+id/orderButton"
-            app:layout_constraintEnd_toEndOf="parent" />
-
-    </android.support.constraint.ConstraintLayout>
 
 </LinearLayout>

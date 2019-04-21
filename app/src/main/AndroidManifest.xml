@@ -17,8 +17,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.LoginActivity"
-            android:theme="@style/CustomNoActionBar">
+            android:name=".view.MapsActivity"
+            android:label="@string/title_activity_maps"
+            android:theme="@style/CustomNoActionBar" >
+        <!--<activity-->
+            <!--android:name=".view.LoginActivity"-->
+            <!--android:theme="@style/CustomNoActionBar">-->
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -41,10 +45,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity
-            android:name=".view.MapsActivity"
-            android:label="@string/title_activity_maps"
-            android:theme="@style/CustomNoActionBar" />
+
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -86,7 +87,7 @@
             android:name=".view.MenuActivity"
             android:theme="@style/CustomNoActionBar" />
         <activity android:name=".view.GridRestaurantsActivity" />
-        <activity android:name=".view.OrderActivity"
+        <activity android:name=".view.FriendActivity"
             android:theme="@style/CustomNoActionBar" />
     </application>
 

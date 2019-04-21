@@ -38,6 +38,7 @@ class RestaurantActivity : AppCompatActivity() {
 
     fun openTable(view: View) {
         intent = Intent(this, OrdersActivity::class.java)
+        intent.putExtra("restaurant", this.restaurant)
         startActivity(intent)
     }
 
@@ -47,7 +48,7 @@ class RestaurantActivity : AppCompatActivity() {
 
     fun openMenu(view: View) {
         intent = Intent(this, MenuActivity::class.java)
-        intent.putExtra("restaurant_id", this.restaurant.id)
+        intent.putExtra("restaurant", this.restaurant)
         startActivity(intent)
     }
 }
