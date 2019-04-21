@@ -88,7 +88,8 @@
             android:textColor="#FFFFFF"
             app:layout_constraintEnd_toStartOf="@+id/closeAccoountButton"
             app:layout_constraintStart_toEndOf="@+id/friendsButton"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:onClick="doOrder"/>
 
         <Button
             android:id="@+id/closeAccoountButton"

@@ -8,13 +8,26 @@ import br.com.broscoder.tips.R
 
 class OrdersActivity : AppCompatActivity() {
 
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_orders)
+
+
+
     }
 
     fun addFriends(view: View) {
         intent = Intent(this, FriendsActivity::class.java)
         startActivity(intent)
     }
+
+    fun doOrder(view: View) {
+        intent = Intent(this, MenuActivity::class.java)
+        startActivity(intent)
+    }
 }
+
+

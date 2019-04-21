@@ -81,11 +81,13 @@
         <activity
             android:name=".view.OrdersActivity"
             android:theme="@style/CustomNoActionBar" />
+        <activity android:name=".view.FriendsActivity" />
         <activity
-            android:name=".view.FriendsActivity"/>
-        <activity android:name=".view.MenuActivity"
+            android:name=".view.MenuActivity"
             android:theme="@style/CustomNoActionBar" />
         <activity android:name=".view.GridRestaurantsActivity" />
+        <activity android:name=".view.OrderActivity"
+            android:theme="@style/CustomNoActionBar" />
     </application>
 
 </manifest>
