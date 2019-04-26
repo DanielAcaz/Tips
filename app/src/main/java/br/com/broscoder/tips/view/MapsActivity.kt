@@ -75,7 +75,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMyLoca
             intent.putExtra("restaurant", it)
             intent.putExtra("item", item as Items)
             startActivity(intent)
-            finish()
         }
         myLayout = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
         myRecycler.layoutManager = myLayout

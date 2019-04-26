@@ -5,28 +5,31 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
-import android.util.Log
 import android.view.View
 import br.com.broscoder.tips.R
 import br.com.broscoder.tips.model.Order
 import br.com.broscoder.tips.model.Restaurant
 import br.com.broscoder.tips.recycler.OrderViewAdapter
 import kotlinx.android.synthetic.main.activity_orders.*
-import kotlin.math.log
+import java.util.*
+import kotlin.collections.ArrayList
 
 class OrdersActivity : AppCompatActivity() {
 
     companion object {
-        private var orders: MutableList<Order> = ArrayList()
+        private var myOrders: MutableList<Order> = ArrayList()
     }
     private lateinit var myRecycler: RecyclerView
     private lateinit var myAdapter: OrderViewAdapter
     private lateinit var restaurant: Restaurant
-
+    private lateinit var orders: List<Order>
+    private val friendsOrders = FriendsActivity.friendsOrders()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_orders)
+
+
 
         restaurant = intent.getParcelableExtra("restaurant")
 
@@ -38,11 +41,11 @@ class OrdersActivity : AppCompatActivity() {
         )
 
         if (order.isValid()) {
-            OrdersActivity.orders.add(order)
+            OrdersActivity.myOrders.add(order)
         }
 
         myRecycler = findViewById(recycler_order.id)
-        myAdapter = OrderViewAdapter(this, orders)
+        myAdapter = OrderViewAdapter(this, myOrders)
         val myLayout = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
         myRecycler.layoutManager = myLayout
         myRecycler.adapter = myAdapter

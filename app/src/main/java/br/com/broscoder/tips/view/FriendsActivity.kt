@@ -10,11 +10,24 @@ import br.com.broscoder.tips.model.Friend
 import br.com.broscoder.tips.model.Order
 import br.com.broscoder.tips.model.Restaurant
 import br.com.broscoder.tips.recycler.FriendsViewAdapter
+import java.util.*
+import kotlin.collections.HashMap
 
 class FriendsActivity : AppCompatActivity() {
 
     companion object {
         var myFrendsAndOrders : MutableMap<Friend, MutableList<Order>> = HashMap()
+
+        fun friendsOrders() : List<Order> {
+            var friendsOrders : MutableList<Order> = Collections.emptyList()
+            myFrendsAndOrders.let {
+                it.forEach { friend, orders ->
+                   friendsOrders.addAll(orders)
+                }
+                return friendsOrders
+            }
+        }
+
     }
     private lateinit var myAdapter: FriendsViewAdapter
     private lateinit var restaurant: Restaurant

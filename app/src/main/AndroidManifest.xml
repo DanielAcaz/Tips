@@ -82,7 +82,8 @@
         <activity
             android:name=".view.OrdersActivity"
             android:theme="@style/CustomNoActionBar" />
-        <activity android:name=".view.FriendsActivity" />
+        <activity android:name=".view.FriendsActivity"
+            android:theme="@style/CustomNoActionBar"/>
         <activity
             android:name=".view.MenuActivity"
             android:theme="@style/CustomNoActionBar" />
