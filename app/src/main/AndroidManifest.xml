@@ -18,7 +18,6 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".view.MapsActivity"
-            android:label="@string/title_activity_maps"
             android:theme="@style/CustomNoActionBar" >
         <!--<activity-->
             <!--android:name=".view.LoginActivity"-->

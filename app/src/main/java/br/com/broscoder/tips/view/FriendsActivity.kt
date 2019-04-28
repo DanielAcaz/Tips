@@ -10,8 +10,6 @@ import br.com.broscoder.tips.model.Friend
 import br.com.broscoder.tips.model.Order
 import br.com.broscoder.tips.model.Restaurant
 import br.com.broscoder.tips.recycler.FriendsViewAdapter
-import java.util.*
-import kotlin.collections.HashMap
 
 class FriendsActivity : AppCompatActivity() {
 
@@ -19,20 +17,27 @@ class FriendsActivity : AppCompatActivity() {
         var myFrendsAndOrders : MutableMap<Friend, MutableList<Order>> = HashMap()
 
         fun friendsOrders() : List<Order> {
-            var friendsOrders : MutableList<Order> = Collections.emptyList()
-            myFrendsAndOrders.let {
-                it.forEach { friend, orders ->
-                   friendsOrders.addAll(orders)
+            var friendsOrders : MutableList<Order> = ArrayList()
+            if(isNotNullAndNotEmpty(myFrendsAndOrders)) {
+                val friends = myFrendsAndOrders.keys.sorted()
+                friends.forEach {
+                            myFrendsAndOrders[it].orEmpty().filter{it.price > 0}
+                                    .forEach { order ->
+                                        order.name += " (${it.name})"
+                                        friendsOrders.add(order)
+                                    }
                 }
-                return friendsOrders
             }
+            return friendsOrders
         }
 
+        private fun isNotNullAndNotEmpty(map: MutableMap<Friend, MutableList<Order>>) = !map.isNullOrEmpty()
+
     }
+
     private lateinit var myAdapter: FriendsViewAdapter
     private lateinit var restaurant: Restaurant
     private val CHILD_FIRST_POSITION = 0L
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_friends)
@@ -74,4 +79,6 @@ class FriendsActivity : AppCompatActivity() {
         startActivity(intent)
         finish()
     }
+
+
 }

@@ -32,11 +32,16 @@ class FriendsViewAdapter internal constructor(private val context: Context, priv
         val friend = getGroup(groupPosition) as Friend
         if (convertView == null) {
             val layoutInflater = this.context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
-            convertView = layoutInflater.inflate(R.layout.menu_type, null)
+            convertView = layoutInflater.inflate(R.layout.friend, null)
         }
-        val listTitleTextView = convertView!!.findViewById<TextView>(R.id.menu_type_name)
+        val listTitleTextView = convertView!!.findViewById<TextView>(R.id.friend_name)
         listTitleTextView.setTypeface(null, Typeface.BOLD)
         listTitleTextView.text = friend.name
+
+        val billValueTextView = convertView!!.findViewById<TextView>(R.id.friend_bill_value)
+        billValueTextView.setTypeface(null, Typeface.BOLD)
+        billValueTextView.text = String.format("R$ %.2f", data[friend]?.filter { it.price >= 0 }?.sumByDouble { it.price })
+
         return convertView
 
 

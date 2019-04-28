@@ -47,10 +47,38 @@
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recycler_order"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="365dp"
         android:orientation="vertical">
 
     </android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginBottom="5dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Total:"
+            android:fontFamily="@font/raleway_bold"
+            android:textSize="25sp"
+            android:paddingLeft="6dp"
+            android:layout_alignParentLeft="true"
+            android:textColor="#000000"/>
+
+        <TextView
+            android:id="@+id/total_bill"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:hint="R$ 000.00"
+            android:layout_alignParentRight="true"
+            android:paddingRight="6dp"
+            android:textSize="25sp"
+            android:fontFamily="@font/raleway_bold"
+            android:textColor="#000000"/>
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -89,26 +117,38 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:paddingBottom="4dp">
+        android:layout_marginBottom="4dp">
 
 
         <Switch
-            android:id="@+id/switch1"
-            android:layout_width="142dp"
+            android:id="@+id/enable_my"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/raleway_bold"
             android:paddingRight="10dp"
-            android:text="My Orders" />
+            android:text="My Orders"
+            android:checked="true"/>
 
         <Switch
-            android:id="@+id/switch2"
-            android:layout_width="172dp"
+            android:id="@+id/enable_friends"
+            android:layout_width="110dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:fontFamily="@font/raleway_bold"
             android:paddingLeft="10dp"
-            android:text="Friend's Orders" />
+            android:text="Friend's Orders"
+            android:checked="true"/>
+
+        <Switch
+            android:id="@+id/enable_tips"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/raleway_bold"
+            android:paddingLeft="10dp"
+            android:text="Tips"
+            android:checked="true"/>
 
     </LinearLayout>
 

@@ -12,6 +12,7 @@ import br.com.broscoder.tips.enums.Scenario
 import br.com.broscoder.tips.factory.MenuFactory
 import br.com.broscoder.tips.model.Friend
 import br.com.broscoder.tips.model.Menu
+import br.com.broscoder.tips.model.Order
 import br.com.broscoder.tips.model.Restaurant
 import br.com.broscoder.tips.recycler.MenuViewAdapter
 import br.com.broscoder.tips.service.MenuService
@@ -22,13 +23,14 @@ class MenuActivity : AppCompatActivity() {
     private lateinit var menus: List<Menu>
     private lateinit var myAdapter: MenuViewAdapter
     private lateinit var service: MenuService
+    private lateinit var restaurant: Restaurant
     private var toOrder: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
-        val restaurant = intent.getParcelableExtra<Restaurant>("restaurant")
+        restaurant = intent.getParcelableExtra<Restaurant>("restaurant")
         val idRestaurant = restaurant.id
         toOrder = intent.getBooleanExtra("toOrder", false)
         val toFriendOrder = intent.getParcelableExtra<Friend>("friend")
@@ -58,7 +60,5 @@ class MenuActivity : AppCompatActivity() {
             }
             false
         }
-
-
     }
 }
