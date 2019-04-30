@@ -3,7 +3,6 @@ package br.com.broscoder.tips.extensions
 import android.support.design.widget.TextInputLayout
 import android.text.InputType
 import br.com.broscoder.tips.R
-import kotlinx.android.synthetic.main.activity_login.view.*
 import java.util.regex.Pattern
 
 fun TextInputLayout.validation():Boolean{

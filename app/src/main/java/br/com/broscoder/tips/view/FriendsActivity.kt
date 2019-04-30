@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.ExpandableListView
 import br.com.broscoder.tips.R
+import br.com.broscoder.tips.extensions.notContains
 import br.com.broscoder.tips.model.Friend
 import br.com.broscoder.tips.model.Order
 import br.com.broscoder.tips.model.Restaurant
@@ -23,7 +24,9 @@ class FriendsActivity : AppCompatActivity() {
                 friends.forEach {
                             myFrendsAndOrders[it].orEmpty().filter{it.price > 0}
                                     .forEach { order ->
-                                        order.name += " (${it.name})"
+                                        if(order.name.notContains(it.name)) {
+                                            order.name += " (${it.name})"
+                                        }
                                         friendsOrders.add(order)
                                     }
                 }
