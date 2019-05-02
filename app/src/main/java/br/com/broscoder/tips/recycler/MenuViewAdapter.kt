@@ -71,6 +71,8 @@ class MenuViewAdapter internal constructor(private val context: Context, private
         menuName.text = menu.name
         val menuPrice = convertView!!.findViewById<TextView>(R.id.price)
         menuPrice.text = "R$ " + menu.price.toString()
+        val menuDescription = convertView!!.findViewById<TextView>(R.id.item_description)
+        menuDescription.text = menu.description
         return convertView
 
 

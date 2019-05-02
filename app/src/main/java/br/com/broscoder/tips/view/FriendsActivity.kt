@@ -83,5 +83,7 @@ class FriendsActivity : AppCompatActivity() {
         finish()
     }
 
-
+    fun back(view: View) {
+        this.onBackPressed()
+    }
 }
