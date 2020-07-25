@@ -2,6 +2,8 @@ package br.com.broscoder.tips.model
 
 import android.os.Parcel
 import android.os.Parcelable
+import br.com.broscoder.tips.extensions.isEqualTest
+import br.com.broscoder.tips.extensions.notContains
 
 class Friend : TipsModel, Comparable<Friend>, Parcelable {
 

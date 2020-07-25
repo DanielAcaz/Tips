@@ -58,7 +58,7 @@ class LoginService {
         fun onLogin(requestCode: Int, resultCode: Int, data: Intent?) : Exception? {
 
             //FACEBOOK LOGIN
-            callbackManager?.onActivityResult(requestCode, resultCode, data)
+            callbackManager.onActivityResult(requestCode, resultCode, data)
 
             //GOOGLE LOGIN
             if (requestCode == context.resources.getInteger(R.integer.request_code)) {

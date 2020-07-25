@@ -63,7 +63,7 @@ class FriendsActivity : AppCompatActivity() {
         val expandableListView = findViewById(R.id.expandableListView) as ExpandableListView
         expandableListView.setAdapter(myAdapter)
 
-        expandableListView!!.setOnChildClickListener { parent, v, groupPosition, id, childPosition ->
+        expandableListView.setOnChildClickListener { parent, v, groupPosition, id, childPosition ->
             if(childPosition == CHILD_FIRST_POSITION) {
 
                 intent = Intent(this, MenuActivity::class.java)
