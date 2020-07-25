@@ -24,7 +24,7 @@ Was created a prototype in Adobe XD to screen design. Bellow has six prototype s
     <img src="./img/proto_restaurant.png"  height="400">
 </div>
 
-## Develpment
+## Development
 
 The project was created with follow technologies and versions:
 
